@@ -8,6 +8,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body{
+  background-color: var(--bg-color);
+}
+
 @keyframes showTag {
   0%{
     width: 0;
@@ -47,7 +51,9 @@
 :root{
   --index: calc(1vw + 1vh);
   --main-color: #2196F3;
+  --bg-color: #F3F7FA;
   --text-bg: #caf0f8;
+  --sub-color: #7a8796;
 }
 
 @font-face {
@@ -60,4 +66,10 @@
   font-family: Avenir;
   font-weight: 700;
   src: url("./assets/fonts/Avenir/avenirnextcyr-demi.ttf");
+}
+
+@font-face {
+  font-family: Avenir;
+  font-weight: 800;
+  src: url("./assets/fonts/Avenir/avenirnextcyr-bold.ttf");
 }
