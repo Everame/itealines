@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #000000;
+  font-family: Avenir;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes showTag {
+  0%{
+    width: 0;
+  }
+  100%{
+    width: calc(var(--index) * 12);
+  }
+}
+
+@keyframes slowlyShow {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes wiggle {
+  0%{
+    transform: rotate(-35deg);
+  }
+  10%{
+    transform: rotate(-40deg);
+  }
+  15%{
+    transform: rotate(-35deg);
+  }
+  100%{
+    transform: rotate(-35deg);
+  }
+}
+
+:root{
+  --index: calc(1vw + 1vh);
+  --main-color: #2196F3;
+  --text-bg: #caf0f8;
+}
+
+@font-face {
+  font-family: Avenir;
+  font-weight: 600;
+  src: url("./assets/fonts/Avenir/avenirnextcyr-regular.ttf");
+}
+
+@font-face {
+  font-family: Avenir;
+  font-weight: 700;
+  src: url("./assets/fonts/Avenir/avenirnextcyr-demi.ttf");
+}

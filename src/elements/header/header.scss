@@ -1,0 +1,45 @@
+$tagWidth: calc(var(--index) * 12);
+$logoSize: calc(var(--index) * 2.5);
+$fontSize: calc(var(--index) * 0.65);
+
+header{
+    display: flex;
+    width: 100%;
+    height: calc(var(--index) * 6);
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    #authorTag{
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        width: $tagWidth;
+        padding: 5px 0;
+        background-color: var(--text-bg);
+        border-radius: 5px;
+        animation: showTag 0.4s ease-out;
+        span{
+            margin: 0 calc($tagWidth/8);
+            font-size: $fontSize;
+            font-weight: 700;
+            animation: slowlyShow 0.8s ease-out;
+        }
+    }
+    #logo{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: calc($logoSize/4);
+        border-radius: 100%;
+        background-color: var(--main-color);
+        img{
+            height: $logoSize;
+            width: $logoSize;
+            margin: 0 0 5px 5px;
+            transform: rotate(-35deg);
+            animation: wiggle 5s ease-out infinite;
+            filter: invert(1);
+        }
+    }
+}
