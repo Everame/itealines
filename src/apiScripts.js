@@ -1,17 +1,20 @@
 export async function sendRequest(method, url, body = null) {
-    const headers = {
+  //Заголовок запроса с API аутенфикатором
+  const headers = {
       'x-access-token': '321d6a221f8926b5ec41ae89a3b2ae7b'
     }
   
+    //Отправка запроса с заданными параметрами url, метода отправки
     return await fetch(url, {
       method: method,
       body: JSON.stringify(body),
       headers: headers
     }).then(async response => {
+      //Если ответ успешно получен возвращаю его
       if (response.ok) {
         return await response.json()
       }
-  
+      //Если ответ не получен возвращаю ошибку
       return await response.json().then(error => {
         const e = new Error('Что-то пошло не так')
         e.data = error

@@ -1,7 +1,9 @@
 import React from 'react'
-import { Azimuth, Biletix, Clickavia, Close, Izhavia, Kupi, Mego, OneTwoTrip, SevenLines, Smartavia, SuperKassa } from '../assets';
+import { Azimuth, Biletix, Clickavia, Close, Izhavia, Kupi, Mego, OneTwoTrip, SevenLines, Smartavia, SuperKassa } from '../assets'; //Подключаем необходимые изображения
 
+//Модальное окно
 export default function ModalWindow({price, origin, destination, duration, changes, gate, departDate, returnDate, typeClass, setIsShow, setCurrentTicket}) {
+    //Рассчитываеи дату прибытия
     const depart = new Date(new Date(departDate).getTime() + duration*60000)
     const ret = new Date(new Date(returnDate).getTime() + duration*60000);
     return (

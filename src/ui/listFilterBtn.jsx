@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { data } from '../apiScripts';
+import { data } from '../apiScripts'; //подключаем тестовые данные
 
+//ui элемент кнопок фильрации
 export default function ListFilterBtn({isActive, setData}) {
     const [isAll, setIsAll] = useState(false);
     const [tempData, setTempData] = useState([])
+    //состояние каждой кнопки, кроме первой
     const [boolArr, setBoolArr] = useState([true, true, true, true])
 
+    //При каждом обновлении состояния временного хранилища данных и массива состояний каждой кнопки обновляем состояние постоянного хранидища и состояние первой кнопки
     useEffect(() => {
         if(tempData.length !== 0){
             setData(tempData);
@@ -25,11 +28,13 @@ export default function ListFilterBtn({isActive, setData}) {
             checked={isAll ? true : false}/>
             <label className="checkboxView" for="all" 
             onClick={() => {
+                //Обновляем состояние всех кнопок до исходного
                 for(let i = 0; i < 4; i++){
                     boolArr[i] = true;
                 }
                 setBoolArr(boolArr);
                 setIsAll(true);
+                //Приводим к исходному виду состояние постоянного и временного хранилища
                 setData(data);
                 setTempData([]);
             }}></label>
@@ -40,15 +45,20 @@ export default function ListFilterBtn({isActive, setData}) {
             checked={boolArr[0] ? false : true} 
             onChange={(e) => {
                 if(boolArr[0]){
+                    //Добавляем во временное хранилище все элементы с пересадками равные 0
                     setTempData([...tempData, ...data.filter(tick => tick.number_of_changes === 0)]);
                 }else{
+                    //Убираем из временного хранилища все элементы с пересадками равные 0
                     let arr = tempData.filter(tick => tick.number_of_changes !== 0);
                     if(arr.length === 0){
+                        //Если во временном хранилище не остается элементов возвращаем постоястоянное хранилище к исходному состоянию
                         setData(data);
                     }else{
+                        //Если во временном хранилище остаются элементы возвращаем сохраняем их в постоянное хранилище
                         setTempData(arr);
                     }
                 }
+                //Меняем состояние второй кнопки
                 let tempArr = {...boolArr};
                 tempArr[0] = !tempArr[0];
                 setBoolArr(tempArr);

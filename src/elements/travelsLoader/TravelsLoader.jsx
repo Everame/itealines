@@ -1,11 +1,10 @@
-import React, { useMemo } from 'react'
-import FilterBtn from '../../ui/filterBtn'
-import "./travelsLoader.scss"
-import { useState } from 'react';
-import ListFilterBtn from './../../ui/listFilterBtn';
-import {sendRequest, data} from './../../apiScripts';
-import TicketItem from '../../ui/ticketItem';
-import ModalWindow from '../../ui/modalWindow';
+import React, { useMemo, useState } from 'react'
+import FilterBtn from '../../ui/filterBtn' //ui элемент кнопки сортировки
+import "./travelsLoader.scss" //стили элемента
+import ListFilterBtn from './../../ui/listFilterBtn'; //ui элемент кнопки фильтрации
+import {sendRequest, data} from './../../apiScripts'; //метод для отправки запросов к API и тестовые данные
+import TicketItem from '../../ui/ticketItem'; //ui элемент с информацией о билете
+import ModalWindow from '../../ui/modalWindow'; //ui элемент модального окна
 
 export default function TravelsLoader() {
     //sendReauest("GET", "https://api.travelpayouts.com/v2/prices/latest?currency=rub&beginning_of_period=2024-01-01&period_type=month&page=1&limit=30&show_to_affiliates=true&sorting=price"); при работе не из под локального сервера
@@ -15,10 +14,12 @@ export default function TravelsLoader() {
     const [isShow, setIsShow] = useState(false);
     const [currentTicket, setCurrentTicket] = useState({});
 
+    //Сортируем данные при каждом их изменении
     useMemo(() => {
       active === 1 ? sortPrice() : sortDuration();
     }, [testData])
 
+    //Функция сортировки по цене
     function sortPrice(){
       setActive(1);
       testData.sort(function(a, b){
@@ -27,6 +28,7 @@ export default function TravelsLoader() {
       setTestData(testData);
     }
 
+    //Функция сортировки по продолжительности полёта
     function sortDuration(){
       setActive(2);
       testData.sort(function(a, b){
@@ -35,6 +37,7 @@ export default function TravelsLoader() {
       setTestData(testData);
     }
 
+    //Функция изменения состояния показа модального окна
     function showToggle (){
       setIsShow(!isShow);
     }

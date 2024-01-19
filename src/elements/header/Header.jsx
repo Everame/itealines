@@ -1,7 +1,8 @@
 import React from 'react';
-import "./header.scss";
+import "./header.scss"; //стили элемента
 import {AirPlane} from '../../assets';
 
+//Шапка с логотипом приложения
 export default function Header() {
     return (
         <header>
