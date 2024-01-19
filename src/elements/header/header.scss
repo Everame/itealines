@@ -18,6 +18,7 @@ header{
         background-color: var(--text-bg);
         border-radius: 5px;
         animation: showTag 0.4s ease-out;
+        box-shadow: 0px 5px 10px var(--shadow-color);
         span{
             margin: 0 calc($tagWidth/8);
             font-size: $fontSize;
@@ -33,6 +34,7 @@ header{
         padding: calc($logoSize/4);
         border-radius: 100%;
         background-color: var(--main-color);
+        box-shadow: 0px 5px 10px var(--shadow-color);
         img{
             height: $logoSize;
             width: $logoSize;

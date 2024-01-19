@@ -54,6 +54,7 @@ body{
   --bg-color: #F3F7FA;
   --text-bg: #caf0f8;
   --sub-color: #7a8796;
+  --shadow-color: #e4e7e9;
 }
 
 @font-face {
