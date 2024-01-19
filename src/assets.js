@@ -10,6 +10,7 @@ import Smartavia from './assets/imgs/Smartavia_logo.svg';
 import Azimuth from './assets/imgs/azimuth.png';
 import Kupi from './assets/imgs/kupi.svg';
 import SuperKassa from './assets/imgs/superkassa.svg';
+import Close from './assets/imgs/close-svgrepo-com.svg';
 
 export {
     Check,
@@ -23,5 +24,6 @@ export {
     Smartavia,
     Azimuth,
     Kupi,
-    SuperKassa
+    SuperKassa,
+    Close
 }

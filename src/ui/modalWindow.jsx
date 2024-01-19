@@ -1,25 +1,18 @@
 import React from 'react'
-import { Azimuth, Biletix, Clickavia, Izhavia, Kupi, Mego, OneTwoTrip, SevenLines, Smartavia, SuperKassa } from '../assets';
+import { Azimuth, Biletix, Clickavia, Close, Izhavia, Kupi, Mego, OneTwoTrip, SevenLines, Smartavia, SuperKassa } from '../assets';
 
-export default function TicketItem({price, origin, destination, duration, changes, gate, departDate, returnDate, typeClass, setCurrentTicket, setIsShow}) {
+export default function ModalWindow({price, origin, destination, duration, changes, gate, departDate, returnDate, typeClass, setIsShow, setCurrentTicket}) {
     const depart = new Date(new Date(departDate).getTime() + duration*60000)
     const ret = new Date(new Date(returnDate).getTime() + duration*60000);
     return (
-    <arcticle className="tickItem" 
-    onClick={() => {
-        setIsShow()
-        setCurrentTicket(
-            {
-                price: price, 
-                origin: origin, 
-                destination: destination, 
-                duration: duration, 
-                changes: changes, 
-                gate: gate, 
-                departDate: departDate, 
-                returnDate: returnDate, 
-                typeClass: typeClass
-    })}}>
+    <div id="modalWindow" className='tickItem'>
+        <div id="closeBtn" 
+        onClick={() => {
+            setCurrentTicket({})
+            setIsShow()
+            }}>
+            <img src={Close} alt="Close Button" />
+        </div>
         <div id="innerContainer">
             <div className="row">
                 <span className="h3">{price} Р</span>
@@ -85,7 +78,21 @@ export default function TicketItem({price, origin, destination, duration, change
                     </div>
                 </div>
             </div>
+            <div className="rowColumn">
+                <span className="title">Класс перелёта</span>
+                <div className="row">
+                    <div className="rowBlock">
+                        <span className="value">
+                            {
+                                typeClass === 0 ? "Эконом класс" : 
+                                typeClass === 1 ? "Бизнес класс" : 
+                                typeClass === 1 ? "Первый класс" : 
+                                null
+                        }</span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </arcticle>
+    </div>
   )
 }

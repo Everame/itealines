@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { data } from '../apiScripts';
 
-export default function ListFilterBtn({isActive, testData, setData, active, sortPrice, sortDuration}) {
+export default function ListFilterBtn({isActive, setData}) {
     const [isAll, setIsAll] = useState(false);
     const [tempData, setTempData] = useState([])
     const [boolArr, setBoolArr] = useState([true, true, true, true])

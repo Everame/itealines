@@ -8,6 +8,7 @@ export default class App extends React.Component {
           <>
             <Header/>
             <TravelsLoader/>
+            <div className='darkLayer'></div>
           </>
         )
     }
