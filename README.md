@@ -13,8 +13,7 @@ I have implemented:
 
 ## Structure of App
 
-root 
-Script:     Page:     Elements:                 UI/UX elements:
+root script  =>   Page:  =>   Elements:       =>          UI/UX elements:
           
 index.js => App.js => Header element
                       Travel tickets element => ui sorting buttons
